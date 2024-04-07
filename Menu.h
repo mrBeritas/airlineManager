@@ -46,11 +46,19 @@ void printMenu(int& opt) {
 		gotoxy(44, 24);
 		cout << "Opcion: ";
 		cin >> opt;
-		if (opt != 1 && opt != 2 && opt != 3 && opt != 4 && opt != 5) {
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore();
 			cout << "Opcion invalida, intente de nuevo" << endl;
 			system("pause");
 			system("cls");
-			printMenu(opt);
+			continue;
+		}
+		if (opt < 1 || opt > 5) {
+			cout << "Opcion invalida, intente de nuevo" << endl;
+			system("pause");
+			system("cls");
+			continue;
 		}
 
 		switch (opt) {
